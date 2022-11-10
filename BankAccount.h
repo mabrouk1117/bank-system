@@ -13,10 +13,10 @@ class BankAccount
         Client * ptr ;
     public:
         BankAccount(string id , double balance);
-        void set_ptr(  Client &) ;
+        void set_ptr(  Client *) ;
+        double get_balance();
         virtual bool withdraw(double x) ;
         virtual void deposite(double x) ;
-
 };
 
 #endif // BANKACCOUNT_H
