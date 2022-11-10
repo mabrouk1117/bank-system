@@ -2,12 +2,12 @@
 
 BankingApp::BankingApp()
 {
-    // load data
+    // load data from file into map
 }
 
 BankingApp::~BankingApp()
 {
-    // save data
+    // save data form map into file
 }
 
 void BankingApp::menu(){
@@ -18,12 +18,27 @@ void BankingApp::menu(){
     if (x == 1){
         addAccount();
     }
+    if (x==2){
+        string id;
+        cin>>id;
+        cout<<"if you want to deposite enter 1\n";
+        cin>>x;
+        if (x==1){
+            cout<<"enter the amount of money\n";
+            double money;
+            cin>>money ;
+            accounts[stoi(id)-1].deposite(money);
+            cout<<(*clients[stoi(id)-1].ptr).get_balance()<<endl;
+        }
+
+    }
     if (x == 3){
         for(auto i:clients){
-            cout<<i.first<<"  "<<i.second.get_name();
+            cout<<i.get_name()<<endl;
         }
     }
 }
+
 
 void BankingApp::addAccount(){
     cout<<"enter data \n";
@@ -33,19 +48,18 @@ void BankingApp::addAccount(){
     cin>>name>>phone>> address>>balance ;
     ID = clients.size()+1;
     string id = to_string(ID) ;
-    Client c(name,id,phone,address);
+    cout<<"YOUR ID IS "<<id<<endl;
+    Client c(name,id,phone,address );
 
     BankAccount b(id,balance);
-    c.set_ptr(b);
-    b.set_ptr(c);
-    clients.insert(make_pair(ID,c));
 
+
+
+    clients.push_back(c) ;
+    accounts.push_back(b) ;
+    c.set_ptr(&accounts.back()) ;
+    clients.back() = c ;
+    b.set_ptr(& clients.back()) ;
+    accounts.back() = b ;
 
 }
-
-
-
-
-
-
-
