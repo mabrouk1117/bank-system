@@ -6,7 +6,8 @@ using namespace std ;
 class BankingApp
 {
     private:
-        map<int , Client > clients;
+        vector<Client>clients;
+        vector<BankAccount>accounts;
     public:
         BankingApp();
         ~BankingApp();
