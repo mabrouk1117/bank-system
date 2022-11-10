@@ -6,15 +6,20 @@ Client::Client(string n , string id , string phone , string address )
     ID = id ;
     this ->phone = phone ;
     this ->address = address ;
+
     ptr = NULL ;
 }
 
 
-void Client::set_ptr( BankAccount &a) {
-    ptr = &a;
+void Client::set_ptr( BankAccount *a) {
+    this->ptr = a;
 }
 
 
 string Client::get_name() {
     return name;
+}
+
+BankAccount* Client::get_ptr() {
+    return ptr ;
 }
