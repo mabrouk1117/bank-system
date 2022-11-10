@@ -7,9 +7,13 @@ BankAccount::BankAccount(string id , double balance)
     ptr= NULL;
 }
 
-void BankAccount::set_ptr(  Client &a) {
-    ptr = &a;
+void BankAccount::set_ptr(  Client *a) {
+    ptr = a;
 }
+double BankAccount::get_balance(){
+    return balance;
+}
+
 
 bool BankAccount::withdraw(double x){
     if (balance>=x){
