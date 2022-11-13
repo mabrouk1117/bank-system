@@ -1,15 +1,5 @@
 #include "BankingApp.h"
 
-BankingApp::BankingApp()
-{
-    // load data from file into map
-}
-
-BankingApp::~BankingApp()
-{
-    // save data form map into file
-}
-
 void BankingApp::menu(){
     cout<<"welcome \n";
     cout<<"to add acc enter 1\nif you want to login enter 2\n";
@@ -41,10 +31,13 @@ void BankingApp::menu(){
 
 
 void BankingApp::addAccount(){
-    cout<<"enter data \n";
+    cout<<"if u want it saving account enter 2 otherwise enter 1";
+    int k ;     cin>>k;
+    cout<<"Enter the Account data\n";
     string name ,phone,address;
     double balance ;
     int ID ;
+    cout<<"Name >> Phone number >> Address >> Balance";
     cin>>name>>phone>> address>>balance ;
     ID = clients.size()+1;
     string id = to_string(ID) ;
@@ -63,3 +56,5 @@ void BankingApp::addAccount(){
     accounts.back() = b ;
 
 }
+
+
