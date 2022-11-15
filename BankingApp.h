@@ -1,19 +1,21 @@
 #ifndef BANKINGAPP_H
 #define BANKINGAPP_H
 #include "BankAccount.h"
+#include "SavingsBankAccount.h"
 using namespace std ;
 
 class BankingApp
 {
 private:
+//    map<string , Client> client;
     vector<Client>clients;
     vector<BankAccount>accounts;
     vector<SavingsBankAccount>Savings;
 public:
-    BankingApp(){};
-    ~BankingApp(){}
+    BankingApp()= default;
+    ~BankingApp()= default;
 
-    __attribute__((unused)) void menu();
+    void menu();
     void addAccount() ;
 };
 
