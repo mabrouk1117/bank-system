@@ -3,6 +3,10 @@
 using namespace std;
 
 int main() {
-    
+    BankingApp h;
+    int i = 5;
+    while(i--){
+        h.menu();
+    }
     return 0;
 }
